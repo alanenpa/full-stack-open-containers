@@ -1,0 +1,6 @@
+services:
+  app:
+    image: test-image
+    build: .
+    ports:
+      - 3000:3000

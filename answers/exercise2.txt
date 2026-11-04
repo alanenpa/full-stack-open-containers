@@ -1,0 +1,83 @@
+fs-containers % docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+6f01cc7d6fb3: Pull complete
+afa7f7d582de: Pull complete
+d597c14cfeb9: Download complete
+Digest: sha256:0e73b71479e7bc5f006bca872e25c3cd680dc052a0116f90d63ae363537db0dd
+Status: Downloaded newer image for ubuntu:latest
+root@7923e510f221:/# ll
+total 60
+drwxr-xr-x   1 root root 4096 Oct 28 13:10 ./
+drwxr-xr-x   1 root root 4096 Oct 28 13:10 ../
+-rwxr-xr-x   1 root root    0 Oct 28 13:10 .dockerenv*
+drwxr-xr-x   2 root root 4096 Oct 25 10:30 .rock/
+lrwxrwxrwx   1 root root    7 Apr 20  2026 bin -> usr/bin/
+drwxr-xr-x   2 root root 4096 Apr 20  2026 boot/
+drwxr-xr-x   5 root root  360 Oct 28 13:10 dev/
+drwxr-xr-x   1 root root 4096 Oct 28 13:10 etc/
+drwxr-xr-x   3 root root 4096 Oct 25 10:30 home/
+lrwxrwxrwx   1 root root    7 Apr 20  2026 lib -> usr/lib/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 media/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 mnt/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 opt/
+dr-xr-xr-x 244 root root    0 Oct 28 13:10 proc/
+drwx------   2 root root 4096 Oct 25 10:30 root/
+drwxr-xr-x   4 root root 4096 Oct 25 10:30 run/
+lrwxrwxrwx   1 root root    8 Apr 20  2026 sbin -> usr/sbin/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 srv/
+dr-xr-xr-x  11 root root    0 Oct 28 13:10 sys/
+drwxrwxrwt   2 root root 4096 Oct 25 10:29 tmp/
+drwxr-xr-x  11 root root 4096 Oct 25 10:27 usr/
+drwxr-xr-x  11 root root 4096 Oct 25 10:30 var/
+root@7923e510f221:/# open .
+bash: open: command not found
+root@7923e510f221:/# ..
+bash: ..: command not found
+root@7923e510f221:/# cd ..
+root@7923e510f221:/# ll
+total 60
+drwxr-xr-x   1 root root 4096 Oct 28 13:10 ./
+drwxr-xr-x   1 root root 4096 Oct 28 13:10 ../
+-rwxr-xr-x   1 root root    0 Oct 28 13:10 .dockerenv*
+drwxr-xr-x   2 root root 4096 Oct 25 10:30 .rock/
+lrwxrwxrwx   1 root root    7 Apr 20  2026 bin -> usr/bin/
+drwxr-xr-x   2 root root 4096 Apr 20  2026 boot/
+drwxr-xr-x   5 root root  360 Oct 28 13:10 dev/
+drwxr-xr-x   1 root root 4096 Oct 28 13:10 etc/
+drwxr-xr-x   3 root root 4096 Oct 25 10:30 home/
+lrwxrwxrwx   1 root root    7 Apr 20  2026 lib -> usr/lib/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 media/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 mnt/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 opt/
+dr-xr-xr-x 244 root root    0 Oct 28 13:10 proc/
+drwx------   2 root root 4096 Oct 25 10:30 root/
+drwxr-xr-x   4 root root 4096 Oct 25 10:30 run/
+lrwxrwxrwx   1 root root    8 Apr 20  2026 sbin -> usr/sbin/
+drwxr-xr-x   2 root root 4096 Oct 25 10:28 srv/
+dr-xr-xr-x  11 root root    0 Oct 28 13:10 sys/
+drwxrwxrwt   2 root root 4096 Oct 25 10:29 tmp/
+drwxr-xr-x  11 root root 4096 Oct 25 10:27 usr/
+drwxr-xr-x  11 root root 4096 Oct 25 10:30 var/
+root@7923e510f221:/# cd home/
+root@7923e510f221:/home# ll
+total 12
+drwxr-xr-x 3 root   root   4096 Oct 25 10:30 ./
+drwxr-xr-x 1 root   root   4096 Oct 28 13:10 ../
+drwxr-x--- 2 ubuntu ubuntu 4096 Oct 25 10:30 ubuntu/
+root@7923e510f221:/home# cd ..
+root@7923e510f221:/# mkdir usr/src/app
+root@7923e510f221:/# cd usr/src/app
+root@7923e510f221:/usr/src/app# ll
+total 8
+drwxr-xr-x 2 root root 4096 Oct 28 13:11 ./
+drwxr-xr-x 1 root root 4096 Oct 28 13:11 ../
+root@7923e510f221:/usr/src/app# touch index.js
+root@7923e510f221:/usr/src/app# ll
+total 8
+drwxr-xr-x 2 root root 4096 Oct 28 13:11 ./
+drwxr-xr-x 1 root root 4096 Oct 28 13:11 ../
+-rw-r--r-- 1 root root    0 Oct 28 13:11 index.js
+root@7923e510f221:/usr/src/app# exit
+exit
+patrik@byod-109-128 fs-containers %

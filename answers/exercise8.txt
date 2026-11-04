@@ -1,0 +1,82 @@
+todo-backend % docker container exec -it todo-backend-mongo-1 bash
+root@e0db9a61d972:/# mongosh -u root -p example
+Current Mongosh Log ID:	6ae4c2b1e0c57de42021c334
+Connecting to:		mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.14.0
+Using MongoDB:		9.0.4
+Using Mongosh:		2.14.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-10-30T09:15:24.200+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2026-10-30T09:15:24.299+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2026-10-30T09:15:24.299+00:00: We suggest setting the contents of sysfsFile to 0.
+   2026-10-30T09:15:24.299+00:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+------
+
+test> show dbs
+admin         100.00 KiB
+config         36.00 KiB
+local          72.00 KiB
+the_database   52.00 KiB
+test> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('6ae4602bfd5452c2a720f6c2'),
+    text: 'Write code',
+    done: false
+  },
+  {
+    _id: ObjectId('6ae4602bfd5452c2a720f6c3'),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.todos.insertOne({})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6ae4c40fe0c57de42021c335')
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('6ae4602bfd5452c2a720f6c2'),
+    text: 'Write code',
+    done: false
+  },
+  {
+    _id: ObjectId('6ae4602bfd5452c2a720f6c3'),
+    text: 'Learn about containers',
+    done: false
+  },
+  { _id: ObjectId('6ae4c40fe0c57de42021c335') }
+]
+the_database> db.todos.insertOne({ text: 'Increase the number of tools in my tool belt', done: false })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6ae4c469e0c57de42021c336')
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('6ae4602bfd5452c2a720f6c2'),
+    text: 'Write code',
+    done: false
+  },
+  {
+    _id: ObjectId('6ae4602bfd5452c2a720f6c3'),
+    text: 'Learn about containers',
+    done: false
+  },
+  { _id: ObjectId('6ae4c40fe0c57de42021c335') },
+  {
+    _id: ObjectId('6ae4c469e0c57de42021c336'),
+    text: 'Increase the number of tools in my tool belt',
+    done: false
+  }
+]

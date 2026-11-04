@@ -1,0 +1,24 @@
+todo-backend % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS             PORTS                                           NAMES
+4f7c6e6b7816   redis     "docker-entrypoint.s…"   35 minutes ago      Up 35 minutes      0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp     todo-backend-redis-1
+231bdf949926   mongo     "docker-entrypoint.s…"   35 minutes ago      Up 35 minutes      0.0.0.0:3456->27017/tcp, [::]:3456->27017/tcp   todo-backend-mongo-1
+173ac576bb4d   nginx     "/docker-entrypoint.…"   About an hour ago   Up About an hour   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp         admiring_kare
+todo-backend % docker container exec -it 4f bash
+root@4f7c6e6b7816:/data# redis-cli
+127.0.0.1:6379> KEYS *
+1) "added_todos"
+127.0.0.1:6379> GET added_todos
+"16"
+127.0.0.1:6379> SET added_todos 9001
+OK
+127.0.0.1:6379> GET added_todos
+"9001"
+127.0.0.1:6379> GET added_todos
+"9002"
+127.0.0.1:6379> DEL added_todos
+(integer) 1
+127.0.0.1:6379> KEYS *
+(empty array)
+127.0.0.1:6379> GET added_todos
+"1"
+127.0.0.1:6379>
